@@ -1,16 +1,17 @@
 package hometask1.figures;
 
 import hometask1.enums.Color;
+import hometask1.enums.FigureType;
 
 public class RightTriangle extends Figure {
+    private final int firstLeg;
+    private final int secondLeg;
 
-    private final double firstLeg;
-    private final double secondLeg;
+    private final FigureType figureType = FigureType.RIGHT_TRIANGLE;
 
     public RightTriangle(Color color,
-                         double firstLeg,
-                         double secondLeg) {
-
+                         int firstLeg,
+                         int secondLeg) {
         super(color);
 
         this.firstLeg = firstLeg;
@@ -19,21 +20,13 @@ public class RightTriangle extends Figure {
 
     @Override
     public double getArea() {
-        return (double) (firstLeg * secondLeg) / 2;
+        return (firstLeg * secondLeg) / 2.0;
     }
 
     @Override
     public void draw() {
-
-        System.out.println(
-                "Figure: Right Triangle" +
-                        ", area: " + getArea() +
-                        " sq. units" +
-                        ", firstLeg: " + firstLeg +
-                        " units" +
-                        ", secondLeg: " + secondLeg +
-                        " units" +
-                        ", color: " + getColor()
-        );
+        drawMessage(figureType,
+                    ", firstLeg: " + firstLeg + " units" +
+                            ", secondLeg: " + secondLeg + " units");
     }
 }

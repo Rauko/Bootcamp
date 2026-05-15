@@ -1,12 +1,23 @@
 package hometask1.enums;
 
 public enum Color {
-    RED,
-    GREEN,
-    YELLOW,
-    BLUE,
-    MAGENTA,
-    CYAN,
-    WHITE,
-    BLACK
+    RED("red"),
+    GREEN("green"),
+    YELLOW("yellow"),
+    BLUE("blue"),
+    MAGENTA("magenta"),
+    CYAN("cyan"),
+    WHITE("white"),
+    BLACK("black");
+
+    private final String color;
+
+    Color(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return color;
+    }
 }

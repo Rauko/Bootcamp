@@ -1,13 +1,14 @@
 package hometask1.figures;
 
 import hometask1.enums.Color;
-
+import hometask1.enums.FigureType;
 
 public class Square extends Figure {
+    private final int side;
 
-    private final double side;
+    private final FigureType figureType = FigureType.SQUARE;
 
-    public Square(Color color, double side) {
+    public Square(Color color, int side) {
         super(color);
         this.side = side;
     }
@@ -20,12 +21,8 @@ public class Square extends Figure {
     @Override
     public void draw() {
 
-        System.out.println(
-                        "Figure: Square" +
-                        ", area: " + getArea() +
-                        ", side: " + side +
-                        ", color: " + getColor()
-        );
+        drawMessage(figureType,
+                    ", side: " + side + " units");
 
     }
 

@@ -1,16 +1,18 @@
 package hometask1.figures;
 
 import hometask1.enums.Color;
+import hometask1.enums.FigureType;
 
 public class Rectangle extends Figure {
 
-    private final double width;
-    private final double height;
+    private final int width;
+    private final int height;
+
+    private final FigureType figureType = FigureType.RECTANGLE;
 
     public Rectangle(Color color,
-                     double width,
-                     double height) {
-
+                     int width,
+                     int height) {
         super(color);
 
         this.width = width;
@@ -24,16 +26,8 @@ public class Rectangle extends Figure {
 
     @Override
     public void draw() {
-
-        System.out.println(
-                "Figure: Rectangle" +
-                        ", area: " + getArea() +
-                        " sq. units" +
-                        ", width: " + width +
-                        " units" +
-                        ", height: " + height +
-                        " units" +
-                        ", color: " + getColor()
-        );
+        drawMessage( figureType,
+                    ", width: " + width + " units" +
+                            ", height: " + height + " units");
     }
 }

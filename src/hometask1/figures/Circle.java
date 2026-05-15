@@ -1,12 +1,14 @@
 package hometask1.figures;
 
 import hometask1.enums.Color;
+import hometask1.enums.FigureType;
 
 public class Circle extends Figure {
+    private final int radius;
 
-    private final double radius;
+    private final FigureType figureType = FigureType.CIRCLE;
 
-    public Circle(Color color, double radius) {
+    public Circle(Color color, int radius) {
         super(color);
         this.radius = radius;
     }
@@ -18,14 +20,7 @@ public class Circle extends Figure {
 
     @Override
     public void draw() {
-
-        System.out.println(
-                "Figure: Circle" +
-                        ", area: " + getArea() +
-                        " sq. units" +
-                        ", radius: " + radius +
-                        " units" +
-                        ", color: " + getColor()
-        );
+        drawMessage(figureType,
+                    ", radius: " + radius + " units");
     }
 }
