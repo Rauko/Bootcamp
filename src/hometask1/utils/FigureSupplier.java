@@ -9,7 +9,6 @@ import hometask1.figures.Square;
 import hometask1.figures.RightTriangle;
 import hometask1.figures.IsoscelesTrapezoid;
 
-
 import java.util.Random;
 
 public class FigureSupplier {

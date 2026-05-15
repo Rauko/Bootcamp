@@ -1,6 +1,5 @@
 package hometask1.figures;
 
-
 import hometask1.enums.Color;
 import hometask1.enums.FigureType;
 
@@ -16,7 +15,6 @@ public class IsoscelesTrapezoid extends Figure {
                               int bottomBase,
                               int height) {
         super(color);
-
         this.topBase = topBase;
         this.bottomBase = bottomBase;
         this.height = height;

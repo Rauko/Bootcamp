@@ -13,7 +13,6 @@ public class RightTriangle extends Figure {
                          int firstLeg,
                          int secondLeg) {
         super(color);
-
         this.firstLeg = firstLeg;
         this.secondLeg = secondLeg;
     }

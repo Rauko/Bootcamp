@@ -14,7 +14,6 @@ public class Rectangle extends Figure {
                      int width,
                      int height) {
         super(color);
-
         this.width = width;
         this.height = height;
     }
