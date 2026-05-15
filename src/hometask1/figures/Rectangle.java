@@ -25,7 +25,7 @@ public class Rectangle extends Figure {
 
     @Override
     public void draw() {
-        drawMessage( figureType,
+        drawMessage(figureType,
                     ", width: " + width + " units" +
                             ", height: " + height + " units");
     }

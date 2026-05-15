@@ -5,7 +5,6 @@ import hometask1.enums.FigureType;
 
 public abstract class Figure {
     private final Color color;
-    private FigureType figureType;
 
     public Figure(Color color) {
         this.color = color;
@@ -14,7 +13,7 @@ public abstract class Figure {
     public abstract double getArea();
     public abstract void draw();
 
-    protected void drawMessage(FigureType figureType, String figureParameters){
+    protected void drawMessage(FigureType figureType, String figureParameters) {
         System.out.println("Figure: " + figureType +
                             ", area: " + getArea() + " sq. units" +
                             figureParameters +

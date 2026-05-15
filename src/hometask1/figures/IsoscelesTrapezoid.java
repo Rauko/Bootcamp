@@ -27,7 +27,7 @@ public class IsoscelesTrapezoid extends Figure {
 
     @Override
     public void draw() {
-        drawMessage( figureType,
+        drawMessage(figureType,
                     ", topBase: " + topBase + " units" +
                             ", bottomBase: " + bottomBase + " units" +
                             ", height: " + height + " units");

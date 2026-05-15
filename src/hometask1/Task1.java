@@ -5,7 +5,6 @@ import hometask1.utils.FigureSupplier;
 
 public class Task1 {
     public static void run() {
-
         System.out.println("Task 1.");
 
         FigureSupplier supplier = new FigureSupplier();

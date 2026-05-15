@@ -20,10 +20,7 @@ public class Square extends Figure {
 
     @Override
     public void draw() {
-
         drawMessage(figureType,
                     ", side: " + side + " units");
-
     }
-
 }
