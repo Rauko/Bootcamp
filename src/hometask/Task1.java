@@ -1,7 +1,7 @@
-package hometask1;
+package hometask;
 
-import hometask1.figures.Figure;
-import hometask1.utils.FigureSupplier;
+import hometask.figures.Figure;
+import hometask.utils.FigureSupplier;
 
 public class Task1 {
     public static void run() {

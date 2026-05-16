@@ -1,7 +1,7 @@
-package hometask1.figures;
+package hometask.figures;
 
-import hometask1.enums.Color;
-import hometask1.enums.FigureType;
+import hometask.enums.Color;
+import hometask.enums.FigureType;
 
 public class Rectangle extends Figure {
 

@@ -1,7 +1,8 @@
-package hometask1.figures;
+package hometask.figures;
 
-import hometask1.enums.Color;
-import hometask1.enums.FigureType;
+import hometask.annotations.DefaultArea;
+import hometask.enums.Color;
+import hometask.enums.FigureType;
 
 public class Circle extends Figure {
     private final int radius;
@@ -14,6 +15,7 @@ public class Circle extends Figure {
     }
 
     @Override
+    @DefaultArea
     public double getArea() {
         return Math.PI * radius * radius;
     }

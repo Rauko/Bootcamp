@@ -1,13 +1,13 @@
-package hometask1.utils;
+package hometask.utils;
 
-import hometask1.enums.Color;
-import hometask1.enums.FigureType;
-import hometask1.figures.Circle;
-import hometask1.figures.Figure;
-import hometask1.figures.Rectangle;
-import hometask1.figures.Square;
-import hometask1.figures.RightTriangle;
-import hometask1.figures.IsoscelesTrapezoid;
+import hometask.enums.Color;
+import hometask.enums.FigureType;
+import hometask.figures.Circle;
+import hometask.figures.Figure;
+import hometask.figures.Rectangle;
+import hometask.figures.Square;
+import hometask.figures.RightTriangle;
+import hometask.figures.IsoscelesTrapezoid;
 
 import java.util.Random;
 

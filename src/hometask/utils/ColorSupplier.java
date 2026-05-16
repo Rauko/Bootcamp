@@ -1,6 +1,6 @@
-package hometask1.utils;
+package hometask.utils;
 
-import hometask1.enums.Color;
+import hometask.enums.Color;
 
 import java.util.Random;
 

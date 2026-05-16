@@ -1,4 +1,4 @@
-package hometask1.enums;
+package hometask.enums;
 
 public enum Color {
     RED("red"),
