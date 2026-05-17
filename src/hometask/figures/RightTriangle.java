@@ -26,6 +26,6 @@ public class RightTriangle extends Figure {
     public void draw() {
         drawMessage(figureType,
                     ", firstLeg: " + firstLeg + " units" +
-                            ", secondLeg: " + secondLeg + " units");
+                    ", secondLeg: " + secondLeg + " units");
     }
 }

@@ -15,7 +15,7 @@ public class FigureStorage<T extends Figure> {
 
     public T getById(int id) {
         if (id < 0 || id >= figures.size()) {
-            throw new FigureNotFoundException("Figure " + id + " not found.");
+            throw new FigureNotFoundException("Figure #" + id + " not found.");
         }
         return figures.get(id);
     }

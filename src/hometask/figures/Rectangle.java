@@ -4,7 +4,6 @@ import hometask.enums.Color;
 import hometask.enums.FigureType;
 
 public class Rectangle extends Figure {
-
     private final int width;
     private final int height;
 

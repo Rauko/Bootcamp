@@ -19,6 +19,14 @@ public class Task2 {
 
         FigureStorage<Figure> storage = new FigureStorage<>();
 
+        for (int i = 0; i < RANDOM_COUNT; i++) {
+            figures[i] = supplier.getRandomFigure();
+        }
+
+        for (int i = RANDOM_COUNT; i < figures.length; i++) {
+            figures[i] = supplier.getDefaultFigure();
+        }
+
         for (Figure figure : figures) {
             storage.add(figure);
         }
@@ -28,9 +36,10 @@ public class Task2 {
         } catch (FigureNotFoundException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println(
-                "Program still works"
-        );
+
+        for (Figure figure : figures) {
+            figure.draw();
+        }
 
         AnnotationScanner scanner = new AnnotationScanner();
 

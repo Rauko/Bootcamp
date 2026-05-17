@@ -12,7 +12,6 @@ import hometask.figures.IsoscelesTrapezoid;
 import java.util.Random;
 
 public class FigureSupplier {
-
     private final Random random = new Random();
     private final ColorSupplier colorSupplier = new ColorSupplier();
     private static final int FIGURE_COUNT = FigureType.values().length;
