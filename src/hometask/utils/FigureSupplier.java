@@ -34,22 +34,19 @@ public class FigureSupplier {
 
             case RECTANGLE:
                 return new Rectangle(color,random.nextInt(MAX_SIDE) + 1,
-                                           random.nextInt(MAX_SIDE) + 1
-                );
+                                           random.nextInt(MAX_SIDE) + 1);
 
             case CIRCLE:
                 return new Circle(color,random.nextInt(MAX_RADIUS) + 1);
 
             case RIGHT_TRIANGLE:
                 return new RightTriangle(color,random.nextInt(MAX_SIDE) + 1,
-                                               random.nextInt(MAX_SIDE) + 1
-                );
+                                               random.nextInt(MAX_SIDE) + 1);
 
             case ISOSCELES_TRAPEZOID:
                 return new IsoscelesTrapezoid(color,random.nextInt(MAX_TOP_BASE) + 1,
                                                     random.nextInt(MAX_SIDE) + 10,
-                                                    random.nextInt(MAX_HEIGHT) + 1
-                );
+                                                    random.nextInt(MAX_HEIGHT) + 1);
 
             default:
                 throw new IllegalStateException("Unknown figure type: " + type);
