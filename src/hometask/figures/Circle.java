@@ -4,6 +4,8 @@ import hometask.annotations.DefaultArea;
 import hometask.enums.Color;
 import hometask.enums.FigureType;
 
+import java.util.Objects;
+
 public class Circle extends Figure {
     private final int radius;
 
@@ -24,5 +26,20 @@ public class Circle extends Figure {
     public void draw() {
         drawMessage(FIGURE_TYPE,
                     ", radius: " + radius + " units");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        Circle circle = (Circle) o;
+        return radius == circle.radius;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), radius);
     }
 }

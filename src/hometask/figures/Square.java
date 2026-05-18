@@ -3,6 +3,8 @@ package hometask.figures;
 import hometask.enums.Color;
 import hometask.enums.FigureType;
 
+import java.util.Objects;
+
 public class Square extends Figure {
     private final int side;
 
@@ -22,5 +24,20 @@ public class Square extends Figure {
     public void draw() {
         drawMessage(FIGURE_TYPE,
                     ", side: " + side + " units");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        Square square = (Square) o;
+        return side == square.side;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), side);
     }
 }
