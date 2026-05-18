@@ -6,7 +6,7 @@ import hometask.enums.FigureType;
 public class Square extends Figure {
     private final int side;
 
-    private final FigureType figureType = FigureType.SQUARE;
+    private static final FigureType FIGURE_TYPE = FigureType.SQUARE;
 
     public Square(Color color, int side) {
         super(color);
@@ -20,7 +20,7 @@ public class Square extends Figure {
 
     @Override
     public void draw() {
-        drawMessage(figureType,
+        drawMessage(FIGURE_TYPE,
                     ", side: " + side + " units");
     }
 }

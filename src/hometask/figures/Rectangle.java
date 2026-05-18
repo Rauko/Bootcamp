@@ -7,7 +7,7 @@ public class Rectangle extends Figure {
     private final int width;
     private final int height;
 
-    private final FigureType figureType = FigureType.RECTANGLE;
+    private static final FigureType FIGURE_TYPE = FigureType.RECTANGLE;
 
     public Rectangle(Color color,
                      int width,
@@ -24,8 +24,8 @@ public class Rectangle extends Figure {
 
     @Override
     public void draw() {
-        drawMessage(figureType,
+        drawMessage(FIGURE_TYPE,
                     ", width: " + width + " units" +
-                            ", height: " + height + " units");
+                    ", height: " + height + " units");
     }
 }

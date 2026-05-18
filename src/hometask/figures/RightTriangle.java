@@ -7,7 +7,7 @@ public class RightTriangle extends Figure {
     private final int firstLeg;
     private final int secondLeg;
 
-    private final FigureType figureType = FigureType.RIGHT_TRIANGLE;
+    private static final FigureType FIGURE_TYPE = FigureType.RIGHT_TRIANGLE;
 
     public RightTriangle(Color color,
                          int firstLeg,
@@ -24,7 +24,7 @@ public class RightTriangle extends Figure {
 
     @Override
     public void draw() {
-        drawMessage(figureType,
+        drawMessage(FIGURE_TYPE,
                     ", firstLeg: " + firstLeg + " units" +
                     ", secondLeg: " + secondLeg + " units");
     }

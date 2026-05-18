@@ -13,36 +13,30 @@ public class Task2 {
         FigureSupplier supplier = new FigureSupplier();
         final int RANDOM_COUNT = 3;
         final int DEFAULT_COUNT = 3;
-        final int TOTAL_COUNT = RANDOM_COUNT + DEFAULT_COUNT;
-
-        Figure[] figures = new Figure[TOTAL_COUNT];
 
         FigureStorage<Figure> storage = new FigureStorage<>();
 
         for (int i = 0; i < RANDOM_COUNT; i++) {
-            figures[i] = supplier.getRandomFigure();
+            storage.add(supplier.getRandomFigure());
         }
 
-        for (int i = RANDOM_COUNT; i < figures.length; i++) {
-            figures[i] = supplier.getDefaultFigure();
+        for (int i = 0; i < DEFAULT_COUNT; i++) {
+            storage.add(supplier.getDefaultFigure());
+        }
+        System.out.println("\nFigureStorage<Figure> usage demonstration:");
+        for (int i = 0; i < storage.size(); i++) {
+            storage.getById(i).draw();
         }
 
-        for (Figure figure : figures) {
-            storage.add(figure);
-        }
+        System.out.println("\nException demonstration:");
 
         try {
             storage.getById(42).draw();
         } catch (FigureNotFoundException e) {
             System.out.println(e.getMessage());
         }
-
-        for (Figure figure : figures) {
-            figure.draw();
-        }
-
+        System.out.println("\nAnnotation demonstration:");
         AnnotationScanner scanner = new AnnotationScanner();
-
         scanner.printDefaultAreas();
     }
 }

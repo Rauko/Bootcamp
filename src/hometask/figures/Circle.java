@@ -7,7 +7,7 @@ import hometask.enums.FigureType;
 public class Circle extends Figure {
     private final int radius;
 
-    private final FigureType figureType = FigureType.CIRCLE;
+    private static final FigureType FIGURE_TYPE = FigureType.CIRCLE;
 
     public Circle(Color color, int radius) {
         super(color);
@@ -22,7 +22,7 @@ public class Circle extends Figure {
 
     @Override
     public void draw() {
-        drawMessage(figureType,
+        drawMessage(FIGURE_TYPE,
                     ", radius: " + radius + " units");
     }
 }

@@ -8,7 +8,7 @@ public class IsoscelesTrapezoid extends Figure {
     private final int bottomBase;
     private final int height;
 
-    private final FigureType figureType = FigureType.ISOSCELES_TRAPEZOID;
+    private static final FigureType FIGURE_TYPE =  FigureType.ISOSCELES_TRAPEZOID;
 
     public IsoscelesTrapezoid(Color color,
                               int topBase,
@@ -27,9 +27,9 @@ public class IsoscelesTrapezoid extends Figure {
 
     @Override
     public void draw() {
-        drawMessage(figureType,
+        drawMessage(FIGURE_TYPE,
                     ", topBase: " + topBase + " units" +
-                            ", bottomBase: " + bottomBase + " units" +
-                            ", height: " + height + " units");
+                    ", bottomBase: " + bottomBase + " units" +
+                    ", height: " + height + " units");
     }
 }

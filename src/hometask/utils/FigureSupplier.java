@@ -25,41 +25,34 @@ public class FigureSupplier {
     private static final int DEFAULT_RADIUS = 10;
 
     public Figure getRandomFigure() {
-        int type = random.nextInt(FIGURE_COUNT);
+        FigureType type = FigureType.values()[random.nextInt(FIGURE_COUNT)];
         Color color = colorSupplier.getRandomColor();
 
         switch (type) {
-            case 0:
-                return new Square(color,
-                                random.nextInt(MAX_SIDE) + 1
+            case SQUARE:
+                return new Square(color,random.nextInt(MAX_SIDE) + 1);
+
+            case RECTANGLE:
+                return new Rectangle(color,random.nextInt(MAX_SIDE) + 1,
+                                           random.nextInt(MAX_SIDE) + 1
                 );
 
-            case 1:
-                return new Rectangle(color,
-                                random.nextInt(MAX_SIDE) + 1,
-                                random.nextInt(MAX_SIDE) + 1
+            case CIRCLE:
+                return new Circle(color,random.nextInt(MAX_RADIUS) + 1);
+
+            case RIGHT_TRIANGLE:
+                return new RightTriangle(color,random.nextInt(MAX_SIDE) + 1,
+                                               random.nextInt(MAX_SIDE) + 1
                 );
 
-            case 2:
-                return new Circle(color,
-                                random.nextInt(MAX_RADIUS) + 1
-                );
-
-            case 3:
-                return new RightTriangle(color,
-                                random.nextInt(MAX_SIDE) + 1,
-                                random.nextInt(MAX_SIDE) + 1
-                );
-
-            case 4:
-                return new IsoscelesTrapezoid(color,
-                                random.nextInt(MAX_TOP_BASE) + 1,
-                                random.nextInt(MAX_SIDE) + 10,
-                                random.nextInt(MAX_HEIGHT) + 1
+            case ISOSCELES_TRAPEZOID:
+                return new IsoscelesTrapezoid(color,random.nextInt(MAX_TOP_BASE) + 1,
+                                                    random.nextInt(MAX_SIDE) + 10,
+                                                    random.nextInt(MAX_HEIGHT) + 1
                 );
 
             default:
-                throw new IllegalStateException();
+                throw new IllegalStateException("Unknown figure type: " + type);
         }
     }
 

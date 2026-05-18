@@ -18,7 +18,7 @@ public class Task1 {
             figures[i] = supplier.getRandomFigure();
         }
 
-        for (int i = DEFAULT_COUNT; i < figures.length; i++) {
+        for (int i = RANDOM_COUNT; i < figures.length; i++) {
             figures[i] = supplier.getDefaultFigure();
         }
 
