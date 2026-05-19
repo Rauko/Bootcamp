@@ -8,7 +8,7 @@ import hometask.utils.FigureSupplier;
 
 public class Task2 {
     public static void run() {
-        System.out.println("Task 2.");
+        System.out.println("\n\nTask 2.\n");
 
         FigureSupplier supplier = new FigureSupplier();
         final int RANDOM_COUNT = 3;
@@ -23,7 +23,7 @@ public class Task2 {
         for (int i = 0; i < DEFAULT_COUNT; i++) {
             storage.add(supplier.getDefaultFigure());
         }
-        System.out.println("\nFigureStorage<Figure> usage demonstration:");
+        System.out.println("FigureStorage<Figure> usage demonstration:");
         for (int i = 0; i < storage.size(); i++) {
             storage.getById(i).draw();
         }
