@@ -3,6 +3,8 @@ package hometask.figures;
 import hometask.enums.Color;
 import hometask.enums.FigureType;
 
+import java.util.Objects;
+
 public class RightTriangle extends Figure {
     private final int firstLeg;
     private final int secondLeg;
@@ -27,5 +29,21 @@ public class RightTriangle extends Figure {
         drawMessage(FIGURE_TYPE,
                     ", firstLeg: " + firstLeg + " units" +
                     ", secondLeg: " + secondLeg + " units");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        RightTriangle that = (RightTriangle) o;
+        return firstLeg == that.firstLeg
+                && secondLeg == that.secondLeg;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), firstLeg, secondLeg);
     }
 }

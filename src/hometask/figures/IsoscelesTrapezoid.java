@@ -3,6 +3,8 @@ package hometask.figures;
 import hometask.enums.Color;
 import hometask.enums.FigureType;
 
+import java.util.Objects;
+
 public class IsoscelesTrapezoid extends Figure {
     private final int topBase;
     private final int bottomBase;
@@ -31,5 +33,22 @@ public class IsoscelesTrapezoid extends Figure {
                     ", topBase: " + topBase + " units" +
                     ", bottomBase: " + bottomBase + " units" +
                     ", height: " + height + " units");
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (!super.equals(o)) {
+            return false;
+        }
+
+        IsoscelesTrapezoid that = (IsoscelesTrapezoid) o;
+        return topBase == that.topBase
+                && bottomBase == that.bottomBase
+                && height == that.height;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), topBase, bottomBase, height);
     }
 }
