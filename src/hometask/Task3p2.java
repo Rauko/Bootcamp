@@ -8,9 +8,10 @@ import hometask.utils.FigureSupplier;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+
+import static hometask.Task3p1.print;
 
 public class Task3p2 {
     private static final int FIGURES_COUNT = 15;
@@ -19,80 +20,91 @@ public class Task3p2 {
     public static void run() {
         System.out.println("\n\nTask 3 part 2.\n");
 
-        List<Figure> figures = generateFigures();
+        List<Figure> figures = generateFigures(FIGURES_COUNT);
 
         System.out.println("Generated figures:");
         figures.forEach(Figure::draw);
 
-        System.out.println("\n- Lambda + filter + count:");
-        Predicate<Figure> isLarge = figure -> figure.getArea() > LARGE_AREA_LIMIT;
-        Predicate<Figure> isRed = figure -> figure.getColor().equals(Color.RED);
-
-        long largeCount = figures.stream()
-                                 .filter(isLarge)
-                                 .count();
-
-        long largeAndRedCount = figures.stream()
-                                       .filter(isLarge.and(isRed))
-                                       .count();
-
-        System.out.println("Large figures count: " + largeCount);
-        System.out.println("Large and red figures count: " + largeAndRedCount);
-
-        System.out.println("\n- Map + collect - descriptions:");
-        List<String> descriptions = figures.stream()
-                                        .map(Task3p2::describe)
-                                        .collect(Collectors.toList());
-
-        descriptions.forEach(System.out::println);
-
-        System.out.println("\n- GroupingBy - count by type:");
-        Map<String, Long> countByType = figures.stream()
-                                            .collect(Collectors.groupingBy(
-                                                figure -> figure.getClass().getSimpleName(),
-                                                Collectors.counting()
-                                            ));
-
-        System.out.println(countByType);
-
-        System.out.println("\n- Optional task - first circle:");
-        Optional<Figure> firstCircle = figures.stream()
-                                            .filter(figure -> figure instanceof Circle)
-                                            .findFirst();
-
-        String firstCircleDescription = firstCircle
-                                            .map(Task3p2::describe)
-                                            .orElse("no circle in the list");
-
-        System.out.println(firstCircleDescription);
-
-        System.out.println("\n- Optional task - list without circles:");
-        List<Figure> figuresWithoutCircles = new ArrayList<>(figures);
-        figuresWithoutCircles.removeIf(figure -> figure instanceof Circle);
-
-        String firstCircleInFilteredList = figuresWithoutCircles.stream()
-                                                .filter(figure -> figure instanceof Circle)
-                                                .findFirst()
-                                                .map(Task3p2::describe)
-                                                .orElse("no circle in the list");
-
-        System.out.println(firstCircleInFilteredList);
+        predicateCount(figures);
+        descriptions(figures);
+        groupingByType(figures);
+        firstCircle(figures);
     }
 
-    private static String describe(Figure figure) {
+    static String describe(Figure figure) {
         return figure.getClass().getSimpleName() +
                             "[" + figure.getColor() + "]" +
                             " area=" + figure.getArea();
     }
 
-    private static List<Figure> generateFigures() {
+    static List<Figure> generateFigures(int figuresCount) {
         FigureSupplier figureSupplier = new FigureSupplier();
         List<Figure> figures = new ArrayList<>();
 
-        for (int i = 0; i < Task3p2.FIGURES_COUNT; i++) {
+        for (int i = 0; i < figuresCount; i++) {
             figures.add(figureSupplier.getRandomFigure());
         }
 
         return figures;
+    }
+
+    static void predicateCount(List<Figure> figures) {
+        Predicate<Figure> isLarge = figure -> figure.getArea() > LARGE_AREA_LIMIT;
+        Predicate<Figure> isRed = figure -> figure.getColor() == Color.RED;
+
+        long largeCount = figures.stream()
+                .filter(isLarge)
+                .count();
+
+        long largeAndRedCount = figures.stream()
+                .filter(isLarge.and(isRed))
+                .count();
+
+        print("\n- Lambda + filter + count:\n" +
+                "Large figures count: " + largeCount + "\n" +
+                "Large and red figures count: " + largeAndRedCount + "\n");
+    }
+
+    static void descriptions(List<Figure> figures) {
+        List<String> descriptions = figures.stream()
+                .map(Task3p2::describe)
+                .collect(Collectors.toList());
+
+        print("\n- Map + collect - descriptions:\n" + String.join("\n", descriptions) + "\n");
+    }
+
+    static void groupingByType(List<Figure> figures) {
+        Map<String, Long> countByType = figures.stream()
+                .collect(Collectors.groupingBy(
+                        figure -> figure.getClass().getSimpleName(),
+                        Collectors.counting()
+                ));
+
+        print("\n- GroupingBy - count by type:\n"
+                + countByType
+                + "\n");
+    }
+
+    static void firstCircle(List<Figure> figures) {
+        StringBuilder result = new StringBuilder("\n- Optional - first circle:\n");
+
+        result.append(firstCircleDescription(figures)).append("\n");
+
+        List<Figure> figuresWithoutCircles = new ArrayList<>(figures);
+        figuresWithoutCircles.removeIf(figure -> figure instanceof Circle);
+
+        result.append("Without circles: ")
+                .append(firstCircleDescription(figuresWithoutCircles))
+                .append("\n");
+
+        print(result.toString());
+    }
+
+    private static String firstCircleDescription(List<Figure> figures) {
+        return figures.stream()
+                .filter(figure -> figure instanceof Circle)
+                .findFirst()
+                .map(Task3p2::describe)
+                .orElse("no circle in the list");
     }
 }
